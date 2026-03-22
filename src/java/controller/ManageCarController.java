@@ -1,7 +1,7 @@
 // src/java/controller/ManageCarController.java
 package controller;
 
-import dao.CarDAO;
+import dal.CarDAO;
 import model.Car;
 import java.io.IOException;
 import java.util.List;
