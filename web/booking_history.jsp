@@ -100,7 +100,7 @@
                                                 </span>
                                             </c:when>
 
-                                            <%-- TRƯỜNG HỢP MỚI: Thanh toán 100% --%>
+                                            <%-- TRƯỜNG HỢP : Thanh toán 100% --%>
                                             <c:when test="${booking.status == 'Paid'}">
                                                 <span class="status Paid">
                                                     <i class="fas fa-car"></i> Đã thanh toán - Đợi giao xe
@@ -118,7 +118,7 @@
                                             </c:when>
 
                                             <c:otherwise>
-                                                <span class="status">${booking.status}</span>
+                                                <span class="status Completed">${booking.status}!</span>
                                             </c:otherwise>
                                         </c:choose>
                                     </td>

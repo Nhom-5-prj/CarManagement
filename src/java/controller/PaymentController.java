@@ -35,7 +35,7 @@ public class PaymentController extends HttpServlet {
                     amountToPay = totalAmount * 0.3; // Chỉ trả 30% cọc
                 }
                 
-                // 3. ĐỊNH DẠNG SỐ TIỀN CHO ĐẸP (Ví dụ: 2,050,000)
+                // 3. ĐỊNH DẠNG SỐ TIỀN 
                 java.text.DecimalFormat formatter = new java.text.DecimalFormat("#,###");
                 String formattedAmount = formatter.format(amountToPay);
                 

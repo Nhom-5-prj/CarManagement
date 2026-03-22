@@ -29,7 +29,7 @@ public class BookingController extends HttpServlet {
             
         String action = request.getParameter("action");
         
-        // 2. CHO PHÉP VÀO THẲNG GIỎ HÀNG DÙ CÓ ACTION HAY KHÔNG
+        // 2. CHO PHÉP VÀO THẲNG GIỎ HÀNG DÙ CÓ ACTION HAY KO
         if (action == null || "view".equals(action)) { 
             // Hiển thị trang giỏ hàng/hợp đồng dự kiến
             request.getRequestDispatcher("booking.jsp").forward(request, response);
@@ -138,14 +138,14 @@ public class BookingController extends HttpServlet {
 
         if (cart != null && !cart.getDetails().isEmpty()) {
             try {
-                // 1. TÍNH TOÁN: Số ngày thuê thực tế
+                // 1. Số ngày thuê thực tế
                 LocalDate start = LocalDate.parse(cart.getStartDate());
                 LocalDate end = LocalDate.parse(cart.getEndDate());
                 long days = ChronoUnit.DAYS.between(start, end);
                 if (days <= 0) {
                     days = 1; // Thuê trong ngày tính là 1 ngày
                 }
-                // 2. TÍNH TOÁN: Tổng tiền (Giá xe + Phí tài xế 500k/ngày)
+                // 2. Tổng tiền (Giá xe + Phí tài xế 500k/ngày)
                 double totalPerDay = 0;
                 for (BookingDetail detail : cart.getDetails()) {
                     totalPerDay += detail.getCar().getPricePerDay();
@@ -158,7 +158,7 @@ public class BookingController extends HttpServlet {
                 cart.setTotalAmount(finalTotal);
                 cart.setCustomerId(user.getUserId());
 
-                // 3. LƯU TRỮ: Thực hiện transaction vào Database
+                // 3. Thực hiện transaction vào Database
                 BookingDAO dao = new BookingDAO();
                 boolean success = dao.createBookingTransaction(cart);
 
@@ -172,8 +172,8 @@ public class BookingController extends HttpServlet {
                     // 2. Lưu thông báo vào Session (để Redirect không làm mất thông báo)
                     session.setAttribute("SUCCESS_MSG", "Gửi yêu cầu thuê xe thành công! Vui lòng đợi Admin xác nhận trạng thái.");
 
-                    // 3. QUYẾT ĐỊNH: Chuyển hướng hẳn sang Servlet lịch sử
-                    // Điều này bắt trình duyệt thực hiện một yêu cầu mới, giúp Servlet nạp lại data từ DB
+                    // 3. Chuyển hướng hẳn sang Servlet lịch sử
+                    //  bắt trình duyệt thực hiện một yêu cầu mới, giúp Servlet nạp lại data từ DB
                     response.sendRedirect("bookingHistory");
 
                 } else {

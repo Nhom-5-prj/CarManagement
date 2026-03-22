@@ -150,7 +150,7 @@
                                     </c:choose>
                                 </td>
                                 <td style="text-align: center;">
-                                    <%-- ĐÃ THÊM: Nút xóa xe khỏi hợp đồng dự kiến --%>
+                                    <%-- xóa xe khỏi hợp đồng dự kiến --%>
                                     <form action="${pageContext.request.contextPath}/booking" method="POST" class="action-form" 
                                           onsubmit="return confirm('Bạn có chắc chắn muốn xóa xe này khỏi hợp đồng?')">
                                         <input type="hidden" name="action" value="remove">
