@@ -1,7 +1,7 @@
 // src/java/controller/CarController.java
 package controller;
 
-import dal.CarDAO;
+import dao.CarDAO;
 import model.Car;
 import java.io.IOException;
 import java.util.List;
