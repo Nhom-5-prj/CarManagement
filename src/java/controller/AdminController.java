@@ -24,11 +24,11 @@ public class AdminController extends HttpServlet {
         
         request.setAttribute("bookingList", bookingList);
         
-        // ĐÃ XÓA CHỮ "web/" Ở ĐÂY 👇
+       
         request.getRequestDispatcher("admin/manage_bookings.jsp").forward(request, response);
     }
 
-    // POST: Xử lý các hành động cập nhật trạng thái
+    // Xử lý các hành động cập nhật trạng thái
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

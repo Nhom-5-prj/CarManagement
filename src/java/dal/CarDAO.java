@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.Date;
 
-// KẾ THỪA DBConnection
 public class CarDAO extends DBContext {
     
     /**

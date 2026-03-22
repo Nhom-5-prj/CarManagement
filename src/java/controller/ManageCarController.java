@@ -38,7 +38,7 @@ public class ManageCarController extends HttpServlet {
         List<Car> carList = dao.getAllCars();
         request.setAttribute("carList", carList);
         
-        // ĐÃ XÓA CHỮ "web/" Ở ĐÂY 👇
+        
         request.getRequestDispatcher("admin/manage_cars.jsp").forward(request, response);
     }
 

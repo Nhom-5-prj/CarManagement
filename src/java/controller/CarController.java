@@ -10,7 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession; // Import để sử dụng Session
+import jakarta.servlet.http.HttpSession; 
 
 @WebServlet(name = "CarController", urlPatterns = {"/searchCar"})
 public class CarController extends HttpServlet {
@@ -23,7 +23,7 @@ public class CarController extends HttpServlet {
         List<Car> list = dao.getAllCars();
         request.setAttribute("carList", list);
         
-        // Chuyển hướng đến car_list.jsp
+        
         request.getRequestDispatcher("car_list.jsp").forward(request, response);
     }
 
@@ -36,7 +36,7 @@ public class CarController extends HttpServlet {
             String startDate = request.getParameter("startDate"); // Format yyyy-MM-dd
             String endDate = request.getParameter("endDate");     // Format yyyy-MM-dd
 
-            // 2. --- PHẦN THÊM MỚI: LƯU VÀO SESSION (CÁCH 1) ---
+            
             // Việc lưu vào đây giúp JSP có thể gọi lại giá trị bằng ${sessionScope.SAVED_START_DATE}
             HttpSession session = request.getSession();
             session.setAttribute("SAVED_START_DATE", startDate);

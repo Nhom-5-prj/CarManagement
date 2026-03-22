@@ -6,7 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Quản lý Xe</title>
-    <%-- Sửa đường dẫn CSS tuyệt đối --%>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
     <style>
         .form-container { background: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ddd; }
