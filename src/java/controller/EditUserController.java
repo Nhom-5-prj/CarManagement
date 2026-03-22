@@ -18,13 +18,13 @@ public class EditUserController extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         UserDAO dao = new UserDAO();
-        User u = dao.getUserById(id); // Bạn cần đảm bảo UserDAO có hàm này
+        User u = dao.getUserById(id); 
         
         request.setAttribute("user", u);
         request.getRequestDispatcher("admin/edit_user.jsp").forward(request, response);
     }
 
-    // doPost: Khi bấm "Lưu", nó sẽ cập nhật dữ liệu vào Database
+    // Khi"Lưu", nó sẽ cập nhật dữ liệu vào Database
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -34,7 +34,7 @@ public class EditUserController extends HttpServlet {
         String role = request.getParameter("role");
 
         UserDAO dao = new UserDAO();
-        // Giả sử bạn có hàm updateUser trong UserDAO
+        
         dao.updateUser(id, fullName, phone, role); 
         
         response.sendRedirect("manageUsers");

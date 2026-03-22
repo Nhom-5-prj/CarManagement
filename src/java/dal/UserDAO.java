@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-// KẾ THỪA DBConnection
 public class UserDAO extends DBContext {
 
     /**
